@@ -306,15 +306,21 @@ async function loadContactInfo() {
 
   if (info.email) {
     document.getElementById('ciEmailValue').textContent = info.email;
+    document.getElementById('ciEmailCard').href = `mailto:${info.email}`;
   }
   if (info.phone) {
     document.getElementById('ciPhoneValue').textContent = info.phone;
+    document.getElementById('ciPhoneCard').href = `tel:${info.phone.replace(/\s+/g, '')}`;
   }
   if (info.location) {
     document.getElementById('ciLocationValue').textContent = info.location;
+    document.getElementById('ciLocationCard').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(info.location)}`;
   }
   if (info.linkedin_label) {
     document.getElementById('ciLinkedinValue').textContent = info.linkedin_label;
+  }
+  if (info.linkedin_url) {
+    document.getElementById('ciLinkedinCard').href = info.linkedin_url;
   }
 }
 
